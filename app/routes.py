@@ -1,7 +1,10 @@
-from app import app
+from flask import render_template, redirect
 
+from app import app
+from app.forms import LoginForm
 
 @app.route('/')
-@app.route('/index')
+@app.route('/templates/index')
 def login():
-    return ('Hello, World!')
+    form = LoginForm()
+    return render_template('index.html', form=form)
